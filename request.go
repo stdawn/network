@@ -131,6 +131,10 @@ func retryRequest(retryCount int, method RequestMethod, url, params string, head
 
 func addRequestHeader(req *http.Request, header interface{}) error {
 
+	if header == nil {
+		return nil
+	}
+
 	var mapResult map[string]string
 
 	switch header.(type) {
